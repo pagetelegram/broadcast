@@ -2,4 +2,7 @@
 rm *live*
 rm *Live*
 rm *LIVE*
-i=1; shuf -z -e -- * | while IFS= read -rd '' f; do echo mv -- "$f" "File-$((i++))"; done
+for img in *.mp3; do
+newname=$(head /dev/urandom | tr -dc a-z0-9 | head -c 8)
+mv "$img" "$newname".mp3
+done
